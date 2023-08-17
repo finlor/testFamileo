@@ -1,0 +1,17 @@
+
+<div class="search-box">
+  <button class="btn-search">  <fa-icon icon="search" class="fas fa-search"></fa-icon>
+</button>
+  <input type="text" class="input-search"          #searchInput
+         (keyup)="searchBeer($event, '1')" placeholder="Search beer name">
+</div>
+
+<div
+  class="search-results"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="500"
+  (scrolled)="onScrollDown()"
+  [scrollWindow]="true"
+></div>
+<app-beer-list [beers]="items" [searchValue]="searchValue"></app-beer-list>

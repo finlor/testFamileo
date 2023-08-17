@@ -1,0 +1,38 @@
+  <div *ngIf="beers.length > 0">
+    <div class="row mx-auto">
+      <div class="col-1">
+      </div>
+      <div class="col-10">
+        <div class="row mx-auto">
+          <div class="col-xl-4 col-lg-6 col-md-8 col-sm-10 mx-auto" *ngFor="let beer of beers">
+            <div class="wrapper">
+              <a
+                class="c-beer-item"
+                [routerLink]="['/beer', 'index', calculateItemNumber(beer.id)+1, 'name', searchValue]"
+                title="Go to beer {{ beer.name }} details."
+                aria-label="Go to beer details."
+                (click)="calculateItemNumber(beer.id)"
+              >
+                <div class="card">
+                  <div class="front">
+                    <h2>{{ beer.name }}</h2>
+                  </div>
+                  <div class="right">
+                    <h5>{{ beer.tagline }}</h5>
+                    <ul>
+                      <li>Description: {{ beer.description }}% </li>
+                      <li>First Brewed: {{ beer.first_brewed}}</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="img-wrapper">
+                  <img src='{{ beer.image_url }}' onerror="this.src='https://lh6.googleusercontent.com/proxy/B98vak4HyrMSmACUPipeDwB9jobWDfwbqQ4PjqPmYvR4pK8SKWoZZfbuURguZ0ajuJymC75ECxiW9fPmrhm1Yx_Fq_S4gRDdetLycmazD5WKJCO41-4fmKnmjFHwFlSI4CzQwdFtfJADmFjlyICU3TEIcChERo0';" alt=''>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
