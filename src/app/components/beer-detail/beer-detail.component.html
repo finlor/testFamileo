@@ -1,8 +1,7 @@
 <section
   id="beer-details-section"
   *ngIf="beers.name || beers.description || beers.tagline"
-  aria-labelledby="beer-name"
->
+  aria-labelledby="beer-name">
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1 class="display-4 font-weight-bold">{{ beers.name }}</h1>
@@ -16,15 +15,15 @@
   </div>
 </section>
 
-<div class="row mx-auto">      <div class="col-1"></div>
-
-
-<div class="col">
-  <button [routerLink]="['/beer', 'index', previousIndex, 'name', name]">Bière précédente</button>
-</div>
+<div class="row mx-auto">
+  <div class="col-1"></div>
   <div class="col">
-
-  <button  style="--c:#E95A49" [routerLink]="['/beer', 'index', nextIndex, 'name', name]">Bière suivante</button>
-
+    <button [routerLink]="['/beer', 'index', previousIndex, 'name', name]">Bière précédente</button>
+  </div>
+  <div class="col">
+    <button  style="--c:#E95A49" [routerLink]="['/beer', 'index', nextIndex, 'name', name]">Bière suivante</button>
+  </div>
+  <div class="col">
+   <a [routerLink]="'/beer/search'"><button  style="--c:#373a59" >Recherche</button></a>
   </div>
 </div>

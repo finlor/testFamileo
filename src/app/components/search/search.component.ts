@@ -24,7 +24,7 @@ export class SearchComponent {
   searchBeer(query:KeyboardEvent, page:string){
     if(query){
       const element = query.target as HTMLInputElement;
-      this.searchValue = element.value;
+      this.searchValue = element.value.replace(/\s/g, '_');
       this.beerService.searchBeerByNameByPage(element.value, page, this.maxPerLoad.toString()).subscribe((result)=>{
         this.items=result;
       });

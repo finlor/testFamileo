@@ -46,6 +46,36 @@ export class BeersService {
       );
   }
 
+
+  searchBeerByParameter(param: string, term: string, perPage: string, page: string, param2?: string, term2?: string, param3?: string, term3?: string): Observable<Beer[]> {
+
+    let options = new HttpParams();
+    options = options.append(param, term);
+    options = options.append('per_page', perPage);
+    options = options.append('page', page);
+    if (param2 && term2){
+      options = options.append(param2, term2);
+    }
+    if (param3 && term3){
+      options = options.append(param3, term3);
+    }
+
+    return this.http.get<Beer[]>(this.beersUrl,
+      {
+        params: options,
+        responseType: 'json'
+      })
+      .pipe(
+        map(beers => {
+          return beers;
+        }),
+        tap(h => {
+          const outcome = h ? `fetched` : `did not find`;
+          this.log(`${outcome} beers by name${name}`);
+        }),
+        catchError(this.handleError<Beer[]>(`searchBeers name${name}`))
+      );
+  }
   /**
    * Returns a function that handles Http operation failures.
    * This error handler lets the app continue to run as if no error occurred.
