@@ -1,29 +1,27 @@
-<section
-  id="beer-details-section"
-  *ngIf="beers.name || beers.description || beers.tagline"
-  aria-labelledby="beer-name">
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h1 class="display-4 font-weight-bold">{{ beers.name }}</h1>
 
-      <p class="lead">{{ beers.tagline }}</p>
-      <p class="lead">Description :{{ beers.description }}</p>
-      <p class="lead display-6">ABV: {{beers.abv}}</p>
-      <p class="lead display-6">IBU: {{beers.ibu}}</p>
-
+<div class="card" style="width: 90vmax;"  *ngIf="beers.name || beers.description || beers.tagline">
+  <img src="{{ beers.image_url }}" class="card-img-top beer-detail-image" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ beers.name }}</h5>
+    <p class="card-text">{{ beers.tagline }}</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">{{ beers.description }}</li>
+    <li class="list-group-item">ABV: {{beers.abv}}</li>
+    <li class="list-group-item">IBU: {{beers.ibu}}</li>
+  </ul>
+  <div class="card-body">
+    <div class="row mx-auto">
+      <div class="col-md-4">
+        <button class = "me-2" [routerLink]="['/beer', 'index', previousIndex, 'name', name]">Bière précédente</button>
+      </div>
+      <div class="col-md-4">
+        <button class ="me-2" style="--c:#E95A49" [routerLink]="['/beer', 'index', nextIndex, 'name', name]">Bière suivante</button>
+      </div>
+      <div class="col-md-4">
+        <a [routerLink]="'/beer/search'"><button  style="--c:#373a59" >Retour recherche</button></a>
+      </div>
     </div>
   </div>
-</section>
-
-<div class="row mx-auto">
-  <div class="col-1"></div>
-  <div class="col">
-    <button [routerLink]="['/beer', 'index', previousIndex, 'name', name]">Bière précédente</button>
-  </div>
-  <div class="col">
-    <button  style="--c:#E95A49" [routerLink]="['/beer', 'index', nextIndex, 'name', name]">Bière suivante</button>
-  </div>
-  <div class="col">
-   <a [routerLink]="'/beer/search'"><button  style="--c:#373a59" >Recherche</button></a>
-  </div>
 </div>
+

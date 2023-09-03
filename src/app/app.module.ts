@@ -5,11 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './components/search/search.component';
 import {HttpClientModule} from "@angular/common/http";
-import { FontAwesomeModule, FaIconLibrary  } from '@fortawesome/angular-fontawesome';
-import {faSearch} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BeerListComponent } from './components/beer-list/beer-list.component';
 import {InfiniteScrollModule} from "ngx-infinite-scroll";
 import { BeerDetailComponent } from './components/beer-detail/beer-detail.component';
+import {IconsModule} from "./Icon/IconsModulde";
 
 @NgModule({
   declarations: [
@@ -23,12 +23,11 @@ import { BeerDetailComponent } from './components/beer-detail/beer-detail.compon
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
+    IconsModule,
     InfiniteScrollModule,
 
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { constructor(library: FaIconLibrary) {
-    library.addIcons(faSearch)
-}}
+export class AppModule {}

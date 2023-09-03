@@ -36,11 +36,18 @@ body {
 }
 button {
   font-family: system-ui, sans-serif;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   cursor: pointer;
   padding: .1em .6em;
   font-weight: bold;
   border: none;
+  margin-bottom: 0.2em;
+}
+
+.beer-detail-image{
+  max-height: 300px;
+  width: fit-content;
+  text-align: center;
 }
 
 ///TEXT
